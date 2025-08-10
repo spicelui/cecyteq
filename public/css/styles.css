@@ -9,6 +9,7 @@
   }
 }
 body{
+  background-color: white;
   margin: 0px;
   padding: 0px 22px;
 }
@@ -103,3 +104,4 @@ h1{
   left: 50%;  
   transform: translateX(-50%);
 }
+
