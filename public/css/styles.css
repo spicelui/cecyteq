@@ -8,6 +8,9 @@
     font-family: Inter;
   }
 }
+html{
+  background-color: white;
+}
 body{
   background-color: white;
   margin: 0px;
@@ -104,4 +107,5 @@ h1{
   left: 50%;  
   transform: translateX(-50%);
 }
+
 
