@@ -1,0 +1,128 @@
+:root {
+  font-family: 'InterVariable';
+  font-feature-settings: "cv11" 1;
+  --accent: #1C943F;
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable;
+  }
+}
+html{
+  background-color: #F8F8F8;
+}
+body{
+  margin: 0px;
+  padding: 4px 21px;
+}
+input, select, textarea, button {
+  font-family: 'InterVariable';
+  font-feature-settings: 'cv11' 1;
+  font-optical-sizing: 24;
+}
+
+.logo{
+  margin-top: 44px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  margin-top: 4px;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+.icon{
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+.bar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 17px;
+}
+.circle{
+    background-color: #ffffffc7;
+    backdrop-filter: blur(10px);
+    filter: brightness(1.01);
+    width: 56px;
+    height:56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    flex-basis: 56px;
+}
+.seleccion {
+    display: flex;
+    align-items: center;
+    background-color: #ffffffc7;
+    backdrop-filter: blur(10px);
+    filter: brightness(1.01);
+    border-radius: 50px;
+    height: 56px;
+    flex-grow: 1;
+    max-width: 400px;
+    min-width: 0;
+}
+.celda {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 24px;
+    height: auto;
+    padding: 21px;
+    -webkit-tap-highlight-color: #0000000e;
+    justify-content: space-between;
+}
+.cecy {
+    width: 34px;
+    height: 34px;
+    margin: -12px 0px;
+}
+.label{
+    margin-left: 15px;
+    font-weight: 540;
+    font-size: 17px;
+    color: black;
+}
+.conjunto{
+    display: flex;
+}
+.search {
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+    height: 56px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
+    caret-color: #5a5a5a;
+    padding: 0px;
+    box-sizing: border-box;
+    letter-spacing: -0.1px;
+    font-weight: 430;
+    color: black;
+}
+.search-icon {
+    background-color: #fff;
+    margin: 0px 10px 0px 18px;
+    width: 22px;
+    height:22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
