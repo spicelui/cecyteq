@@ -4,8 +4,9 @@ const path = require('path');
 const app = express();
 app.use(express.static('public'));
 
-const PORT= 3000;
+const PORT= process.env.PORT;
 
 app.listen(PORT, ()=>{
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo ${PORT}`);
 });
+
