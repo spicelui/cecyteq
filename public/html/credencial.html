@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=""width=device-width, initial-scale=1" />
+    <title>Credencial</title>
+</head>
+<body>
+    <h1>Credencial</h1>
+
+    <input type="text" id="nombre" placeholder="Nombre"><br>
+    <select id="semestre">
+        <option value="">Semestre</option>
+        <option value="primero">Primero</option>
+        <option value="segundo">Segundo</option>
+        <option value="Tercero">Tercero</option>
+        <option value="Cuarto">Cuarto</option>
+        <option value="Quinto">Quinto</option>
+        <option value="Sexto">Sexto</option>
+        
+    </select><br>
+    <select id="especialidad">
+        <option value="">Especialidad</option>
+        <option value="Programación">Programación</option>
+        <option value="P.G. Administrativa">P.G. Administrativa</option>
+        <option value="Mecatrónica">Mecatrónica</option>
+        <option value="Mant. Industria">Mant. Industrial</option>
+        <option value="T. Plásticos">T. Plásticos</option>
+        
+    </select><br>
+    <select id="turno">
+        <option value="">Turno</option>
+        <option value="Mañana">Mañana</option>
+        <option value="Tarde">Tarde</option>
+    </select><br>
+    <input type="file" id="importar" accept="application/json">
+    <button id="btnExportar">Exportar credencial</button>
+
+    <script src="credencial.js"></script>
+</body>
+</html>
