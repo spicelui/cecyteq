@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app capable" content="yes">
-    <meta name="apple-mobile-web-app status-bar-style" content="default">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="manifest" href="../manifest.json"/>
     <title>Login</title>
     
 </head>
@@ -63,8 +60,13 @@
     <input id="matricula" type="text" class="campo" placeholder="Matricula de credencial" inputmode="numeric"/><br>
     </div>
     </div>
+    <div class="center">
+    <label for="importar" class="custom-file-upload">
+        Restaurar desde una copia local
+    </label>
+    </div>
     <input type="file" id="importar" accept=".json">
-    <script src="credencial.js"></script><br>
+    <script src="../credencial.js"></script><br>
     <button class="button" id="guardar">Continuar</button>
     <script>
         document.getElementById('guardar').addEventListener('click', () => {
@@ -83,5 +85,3 @@
     </script>
 </body>
 </html>
-
-
