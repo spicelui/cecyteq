@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Credencial</title>
+</head>
+<body>
+    <h1>Credencial</h1>
+    Hola
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const datos = {
+                nombre: localStorage.getItem('nombre') || '',
+                semestre: localStorage.getItem('semestre') || '',
+                especialidad: localStorage.getItem('especialidad') || '',
+                turno: localStorage.getItem('turno')||''
+            };
+
+            const archivo = new Blob([JSON.stringify(datos, null, 2)], { type: "application/json" });
+            const enlace = document.createElement('a');
+            enlace.href = URL.createObjectURL(archivo);
+            enlace.download = "backup.json";
+            enlace.click();
+        });
+    </script>
+</body>
+</html>
