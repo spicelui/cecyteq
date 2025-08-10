@@ -12,7 +12,6 @@ html{
   background-color: white;
 }
 body{
-  background-color: white;
   margin: 0px;
   padding: 0px 22px;
 }
@@ -103,9 +102,7 @@ h1{
   font-size: 18px;
   letter-spacing: -0.1px;
   position: fixed;
-  bottom: 16px;
+  bottom: 40px;
   left: 50%;  
   transform: translateX(-50%);
 }
-
-
