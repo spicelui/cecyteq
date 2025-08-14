@@ -8,6 +8,10 @@ app.use(express.static('public'));
 const PASSWORD = '123';
 const FILE_PATH = './anuncios.json';
 
+app.get("/", (req, res) => {
+  res.redirect("/html/login.html");
+});
+
 app.post('/verificar-password', (req, res) => {
   const { password } = req.body;
   if (password === PASSWORD) {
@@ -71,3 +75,4 @@ app.post('/eliminar', (req, res) => {
 });
 
 app.listen(3000, () => console.log('Servidor en http://localhost:3000'));
+
