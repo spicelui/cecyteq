@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F8F8F8" />
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <link rel="manifest" href="../manifest.json"/>
+</head>
+<body>
+  <div class="bar">
+    <a class="circle" onclick="history.back()"><img style="margin-left:-3px; -webkit-tap-highlight-color: transparent;" src="../library/icon-left-chevron.svg"></a>
+    <div class="actions">
+      <button class="circle" id="eliminar"><img style="margin-bottom: 3px;" src="../library/icon-delete.svg"></button>
+      <button class="circle" id="btn"><img style="-webkit-tap-highlight-color: transparent;" src="../library/icon-check.svg"></button>
+    </div>
+  </div>
+  <div class="label">Remitente</div>
+  <div class="seleccion">
+    <span class="icon">
+      <img src="../library/icon-sender.svg">
+    </span>
+  <select id="remitente" required>
+    <option value="CECYTEQ">Todo CECyTEQ</option>
+    <option value="Servicios Escolares">Servicios escolares</option>
+    <option value="Evento">Eventos</option>
+    <option value="Servicios Docentes">Servicios docentes</option>
+    <option value="Servicio social">Servicio social</option>
+    <option value="Cafetería">Cafetería</option>
+    <option value="Deportes">Deportes</option>
+    <option value="Dinámica entre estudiantes">Dinámica estudiantil</option>
+    <option value="Dinámica académica">Dinámica académica</option>
+    <option value="Enfermería">Enfermería</option>
+    <option value="Psicología">Psicología</option>
+  </select>
+  </div>
+  <div class="label">Destinatario</div>
+  <div class="gap">
+  <div class="seleccion">
+    <span class="icon">
+        <img src="../library/icon-calendar.svg">
+    </span>
+    <select id="semestre" required>
+      <option value="Todos" class="none">Todos los semestres</option>
+      <option value="Primero">Primero</option>
+      <option value="Segundo">Segundo</option>
+      <option value="Tercero">Tercero</option>
+      <option value="Cuarto">Cuarto</option>
+      <option value="Quinto">Quinto</option>
+      <option value="Sexto">Sexto</option>
+    </select><br>
+  </div>
+  <div class="seleccion">
+    <span class="icon">
+        <img src="../library/icon-person-dev.svg">
+    </span>
+    <select id="especialidad" required>
+      <option value="Todos">Todos los grupos</option>
+      <option value="Programación">Programación</option>
+      <option value="P.G. Administrativa">P.G. Administrativa</option>
+      <option value="Mecatrónica">Mecatrónica</option>
+      <option value="Mant. Industria">Mant. Industrial</option>
+      <option value="T. Plásticos">T. Plásticos</option>
+      <option value="Electrónica">Electrónica</option>
+    </select><br>
+  </div>
+  <div class="seleccion">
+    <span class="icon">
+      <img src="../library/icon-clock.svg">
+    </span> 
+    <select id="turno" required>
+        <option value="Ambos">Ambos turnos</option>
+        <option value="Mañana">Mañana</option>
+        <option value="Tarde">Tarde</option>
+    </select><br>
+  </div>
+  <div class="label">Contenido</div>
+    <div class="gap">
+      <input class="anuncio-title" type="text" id="titulo" placeholder="Titulo" required autofocus>
+      <textarea class="anuncio-content" placeholder="Descripcion" id="contenido" required></textarea>
+    </div>
+  </div>
+  <script>
+  const stored = sessionStorage.getItem('nuevoAnuncio');
+  let anuncio = stored ? JSON.parse(stored) : null;
+
+  if (anuncio) {
+    document.getElementById('titulo').value = anuncio.titulo || '';
+    document.getElementById('contenido').value = anuncio.contenido || '';
+    document.getElementById('remitente').value = anuncio.remitente || '';
+    document.getElementById('semestre').value = anuncio.semestre || 'Todos';
+    document.getElementById('especialidad').value = anuncio.especialidad || 'Todos';
+    document.getElementById('turno').value = anuncio.turno || 'Ambos';
+  }
+
+  document.getElementById('btn').addEventListener('click', () => {
+    const fecha = Date.now();
+    const remitente = document.getElementById('remitente').value;
+    const titulo = document.getElementById('titulo').value.trim();
+    const contenido = document.getElementById('contenido').value.trim();
+    const semestre = document.getElementById('semestre').value;
+    const especialidad = document.getElementById('especialidad').value;
+    const turno = document.getElementById('turno').value;
+
+    if (!titulo || !contenido) {
+      alert("Introduce un título y/o descripción");
+      return;
+    }
+
+    if (!anuncio) {
+      anuncio = { id: Date.now().toString() };
+    }
+
+    anuncio = { ...anuncio, remitente, titulo, contenido, semestre, especialidad, turno, fecha };
+
+    sessionStorage.setItem('nuevoAnuncio', JSON.stringify(anuncio));
+    window.location.href = './autenticacion.html';
+  });
+
+  document.getElementById('eliminar').addEventListener('click', () => {
+      if (!anuncio) {
+          alert("No hay anuncio para eliminar");
+          return;
+      }
+      sessionStorage.setItem('nuevoAnuncio', JSON.stringify(anuncio));
+      window.location.href = './eliminacion.html';
+  });
+
+</script>
+
+  <script src="../main.js"></script>
+</body>
+</html>

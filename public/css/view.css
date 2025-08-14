@@ -1,0 +1,102 @@
+:root {
+  font-family: 'InterVariable';
+  font-feature-settings: "cv11" 1;
+  --accent: #1C943F;
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable;
+  }
+}
+html{
+  background-color: #ffffff;
+}
+body{
+  margin: 0px;
+  padding: 0px 22px;
+}
+input, select, textarea, button {
+  font-family: 'InterVariable';
+  font-feature-settings: 'cv11' 1;
+  font-optical-sizing: 24;
+}
+.scrolled{
+    opacity: 0;
+}
+.icon{
+  margin-left: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+.bar{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 17px;
+  background: linear-gradient(0deg, #ffffff00, #ffffff);
+  padding: 4px 0px;
+  position: sticky;
+  z-index: 1000;
+  top: 0px;
+  align-items: center;
+}
+.circle{
+  background-color: #ffffff91;
+  backdrop-filter: blur(3px);
+  width: 56px;
+  height:56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  flex-basis: 56px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
+}
+.medium-logo{
+    width: 126px;
+    height: 40px;
+    transition: 200ms;
+}
+
+.remitente{
+    color: #1C943F;
+    font-weight: 500;
+    font-size: 17px;
+    display: flex;
+    gap:9px;
+    letter-spacing: -0.1px;
+    align-items: bottom;
+    margin-bottom: 20px;
+}
+.icono{
+    height: 20px;
+}
+.titulo{
+    font-weight: 650;
+    font-size: 26px;
+    letter-spacing: -0.2px;
+    margin-bottom: 14px;
+}
+.descripcion{
+    font-weight: 420;
+    font-size: 18px;
+    letter-spacing: -0.2px;
+    margin-bottom: 20px;
+    line-height: 27px;
+}
+.date{
+    font-weight: 420;
+    font-size: 15px;
+    color:#9f9f9f;
+    margin-bottom: 140px;
+}
+.anuncio-view{
+    margin: 12px;
+    margin-top: 34px;
+}

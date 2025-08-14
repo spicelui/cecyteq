@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" id="theme-color-meta">
+    <link rel="stylesheet" href="../css/view.css">
+    <title>Anuncio</title>
+</head>
+<body>
+    <div class="bar">
+        <a class="circle" href="./index.html"><img style="margin-left: -4px; -webkit-tap-highlight-color: transparent;" src="../library/icon-left-chevron.svg"></a>
+        <img class="medium-logo" id="logo" src="../library/cecyteq.png">
+        <a class="circle" href="./editor.html"><img style="-webkit-tap-highlight-color: transparent;" src="../library/icon-pencil.svg"></a>
+    </div>
+
+    <div class="anuncio-view" id="anuncio-view"></div>
+
+    <script src="../library/remitentes.js"></script>
+    <script>
+        const params = new URLSearchParams(location.search);
+        const id = params.get('id');
+
+        if (!id) {
+            document.getElementById('anuncio-view').textContent = 'ID no proporcionado.';
+            throw new Error('No hay ID en la URL');
+        }
+
+        let anuncioGlobal = null; 
+
+        fetch('/anuncios')
+        .then(res => res.json())
+        .then(anuncios => {
+            anuncioGlobal = anuncios.find(a => String(a.id) === String(id));
+
+            if (!anuncioGlobal) {
+                document.getElementById('anuncio-view').textContent = 'Anuncio no encontrado.';
+                return;
+            }
+
+            const fechaObj = new Date(anuncioGlobal.fecha);
+            const opcionesFecha = { day: 'numeric', month: 'long', year: 'numeric' };
+            const opcionesHora = { hour: 'numeric', minute: 'numeric', hour12: true };
+
+            const fechaFormateada = fechaObj.toLocaleDateString('es-MX', opcionesFecha);
+            const horaFormateada = fechaObj.toLocaleTimeString('es-MX', opcionesHora).toLowerCase();
+            const fecha = `Ultima edición: ${fechaFormateada} | ${horaFormateada}`;
+
+            const icono = remitentes[anuncioGlobal.remitente] ? remitentes[anuncioGlobal.remitente].icono : '';
+
+            const html = `
+                <div class="remitente"><img class="icono" src="${icono}"></img>${anuncioGlobal.remitente}</div>
+                <div class="titulo">${anuncioGlobal.titulo}</div>
+                <div class="descripcion">${anuncioGlobal.contenido.replace(/\n/g, '<br>')}</div>
+                <div class="date">${fecha}</div>
+            `;
+            document.getElementById('anuncio-view').innerHTML = html;
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('anuncio-view').textContent = 'Error al cargar el anuncio.';
+        });
+
+        document.querySelector('a.circle[href="./editor.html"]').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (anuncioGlobal) {
+                sessionStorage.setItem('nuevoAnuncio', JSON.stringify(anuncioGlobal));
+                window.location.href = 'editor.html';
+            } else {
+                alert('No se pudo cargar el anuncio para editar');
+            }
+        });
+    </script>
+
+    <script>
+        const supbar = document.getElementById("logo");
+
+        window.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY > 36) {
+                supbar.classList.add("scrolled");
+            } else {
+                supbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>

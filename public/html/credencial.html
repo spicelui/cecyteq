@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <title>Credencial</title>
+    
+</head>
+<body>
+    <div class="bar">
+        <a class="circle" href="index.html"><img style="margin-left:-3px; -webkit-tap-highlight-color: transparent;" src="../library/icon-left-chevron.svg"></a>
+        <div class="subtitle" id="subtitle">Tu información</div>
+        <button class="circle" id="guardar"><img src="../library/icon-check.svg"></button>
+    </div>
+    <div class="center">
+    <div class="contenedor">
+        <div id="pfp" class="pfp"></div>
+        <label for="upload-pfp" class="changepfp">
+            <img src="../library/icon-pencilmini.svg">
+        </label>
+        <input type="file" id="upload-pfp" accept="image/*">
+    </div>
+    </div>
+    <div class="form">
+    <div class="seleccion">
+    <input id="nombre" type="text" style="padding-left: 25px;" class="campo" placeholder="Nombre"/><br>
+    </div>
+    <div class="seleccion">
+    <span class="icon">
+        <img src="../library/icon-calendar.svg">
+    </span>
+    <select id="semestre">
+        <option value="" class="none">Semestre</option>
+        <option value="primero">Primero</option>
+        <option value="segundo">Segundo</option>
+        <option value="Tercero">Tercero</option>
+        <option value="Cuarto">Cuarto</option>
+        <option value="Quinto">Quinto</option>
+        <option value="Sexto">Sexto</option>
+    </select><br>
+    </div>
+    <div class="seleccion">
+    <span class="icon">
+        <img src="../library/icon-person-dev.svg">
+    </span>
+    <select id="especialidad">
+        <option value="">Especialidad</option>
+        <option value="Programación">Programación</option>
+        <option value="P.G. Administrativa">P.G. Administrativa</option>
+        <option value="Mecatrónica">Mecatrónica</option>
+        <option value="Mant. Industria">Mant. Industrial</option>
+        <option value="T. Plásticos">T. Plásticos</option>
+    </select><br>
+    </div>
+    <div class="seleccion">
+    <span class="icon">
+        <img src="../library/icon-clock.svg">
+    </span>
+    <select id="turno">
+        <option value="">Turno</option>
+        <option value="Mañana">Mañana</option>
+        <option value="Tarde">Tarde</option>
+    </select><br>
+    </div>
+    <div class="seleccion">
+    <span class="icon">
+        <img src="../library/icon-person-dev.svg">
+    </span>
+    <input id="matricula" type="text" class="campo" placeholder="Matricula de credencial" inputmode="numeric"/><br>
+    </div>
+    </div>
+    <div class="list">
+    <label for="importar" class="itemlist"><img class="symbol" src="../library/icon-import.svg">Importar desde un archivo</label>
+    <input type="file" id="importar" accept=".json">
+    <div id="btnExportar" class="itemlist"><img class="symbol" src="../library/icon-export.svg">Exportar mis datos</div>
+    </div>
+    <script src="../credencial.js"></script>
+    <script>
+        const supbar = document.getElementById("subtitle");
+
+        window.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY > 10) {
+                supbar.classList.add("scrolled");
+            } else {
+                supbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>
