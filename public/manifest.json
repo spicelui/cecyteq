@@ -1,7 +1,7 @@
 {
   "name": "CECyTEQ App",
   "short_name": "CECyTEQ+",
-  "start_url": ".",
+  "start_url": "./html/login.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
@@ -18,3 +18,4 @@
     }
   ]
 }
+
