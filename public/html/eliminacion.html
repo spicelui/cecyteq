@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="bar">
+            <a class="circle" href="index.html"><img style="margin-left:-3px; -webkit-tap-highlight-color: transparent;" src="../library/icon-left-chevron.svg"></a>
+            <img class="cecyte" src="../library/cecyte.png">
+            <div class="circle" style="background-color: transparent; backdrop-filter: none;"></div>
+        </div>
+        <div class="centrador"><img class="big-symbol" src="../library/icon-delete.svg"></div>
+        
+        <div class="heading">Eliminar anuncio</div>
+        <div class="centrador"><div class="descripcion">Esta acción no se podrá deshacer.</div></div>
+        <div class="centrador"><input type="password" class="contraseña" style="caret-color: #E1524B;" id="password" maxlength="10" autofocus></div>
+        <div class="help">¿No sabes el código? Si deseas eliminar un anuncio, solicítalo con tu administrador.</div>
+        <button class="button" style="background-color: #E1524B;" id="send">Eliminar</button>
+        
+        <script>
+            document.getElementById('send').addEventListener('click', async () => {
+            const password = document.getElementById('password').value;
+            const anuncio = JSON.parse(sessionStorage.getItem('nuevoAnuncio'));
+
+            if (!anuncio || !anuncio.id) {
+                alert('No se encontró el anuncio a eliminar.');
+                return;
+            }
+
+            try {
+                const verificacion = await fetch('/verificar-password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password })
+                });
+
+                if (!verificacion.ok) {
+                alert('Contraseña incorrecta');
+                return;
+                }
+
+                const respuesta = await fetch('/eliminar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: anuncio.id, password })
+                });
+
+                const data = await respuesta.json();
+                if (data.success) {
+                alert('Anuncio eliminado correctamente');
+                sessionStorage.removeItem('nuevoAnuncio');
+                window.location.href = './index.html';
+                } else {
+                alert('Error: ' + data.error);
+                }
+
+            } catch (err) {
+                console.error(err);
+                alert('Error de conexión');
+            }
+            });
+        </script>
+    </body>
+</html>

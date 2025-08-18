@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/settings.css">
+    <title>Credencial</title>
+    
+</head>
+<body>
+    <div class="bar">
+      <a class="circle" href="index.html"><img style="margin-left:-3px; -webkit-tap-highlight-color: transparent;" src="../library/icon-left-chevron.svg"></a>
+      <div class="subtitle" id="subtitle">Opciones</div>
+      <button class="circle" style="background-color: transparent; backdrop-filter: none;"></button>
+    </div>
+    <div class="list">
+    <a href="../html/credencial.html" class="perfil">
+      <div id="pfp" class="pfp"></div>
+         <div class="detail">
+            <div id="nombreDiv" class="name"></div>
+            <div class="descripcion">Mi información</div>
+         </div>
+      <img class="chevron" src="../library/icon-chevron-right-gray.svg">
+   </a>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedName = localStorage.getItem('nombre') || '';
+        const nombreDiv = document.getElementById('nombreDiv');
+        nombreDiv.textContent = savedName;
+        const pfp = document.getElementById('pfp');
+        const savedImage = localStorage.getItem('previewBackground');
+        if (savedImage) {
+            pfp.style.backgroundImage = `url(${savedImage})`;
+        }
+    });
+    </script>
+
+    <div class="apartados">
+        <div class="apartado">
+            <div class="icon-wrapper">
+               <img class="icon" src="../library/icon-reload.svg">
+            </div>
+            Copia de seguridad
+        </div>
+    </div>
+    <div class="apartados">
+        <div class="apartado">
+            <div class="icon-wrapper">
+               <img class="icon" src="../library/cecyte.png">
+            </div>
+            CECyTEQ
+        </div>
+    </div>
+    <div class="apartados">
+        <div class="apartado">
+            <div class="icon-wrapper">
+               <img class="icon" src="../library/icon-paper-scroll.svg">
+            </div>
+            Términos y condiciones<img class="chevron" src="../library/icon-chevron-right-gray.svg">
+        </div><div class="apartado">
+            <div class="icon-wrapper">
+               <img class="icon" src="../library/icon-privacy.svg">
+            </div>
+            Política de Privacidad<img class="chevron" src="../library/icon-chevron-right-gray.svg">
+        </div><div class="apartado">
+            <div class="icon-wrapper">
+               <img class="icon" src="../library/icon-document.svg">
+            </div>
+            Licencias<img class="chevron" src="../library/icon-chevron-right-gray.svg">
+        </div><div class="apartado">
+            <div class="icon-wrapper">
+               <img class="icon" src="../library/icon-i.svg">
+            </div>
+            Acerca de<img class="chevron" src="../library/icon-chevron-right-gray.svg">
+        </div>
+    </div>
+    <div class="apartados">
+        <div class="apartado">
+            <div class="icon-wrapper">
+               <img class="icon" src="../library/icon-dev.svg">
+            </div>
+            Desarrollador<img class="chevron" src="../library/icon-chevron-right-gray.svg">
+        </div>
+    </div>
+    </div>
+<script>
+    const supbar = document.getElementById("subtitle");
+
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 10) {
+            supbar.classList.add("scrolled");
+        } else {
+            supbar.classList.remove("scrolled");
+        }
+    });
+</script>
+</body>
+</html>

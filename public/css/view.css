@@ -1,0 +1,119 @@
+:root {
+  font-family: 'InterVariable';
+  font-feature-settings: "cv11" 1;
+  --accent: var(--verde);
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable;
+  }
+}
+html{
+  background-color: #ffffff;
+}
+body{
+  margin: 0px;
+  padding: 0px 22px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+input, select, textarea, button {
+  font-family: 'InterVariable';
+  font-feature-settings: 'cv11' 1;
+  font-optical-sizing: 24;
+}
+.scrolled{
+  opacity: 0;
+}
+.icon{
+  margin-left: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+.bar{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 17px;
+  background: linear-gradient(0deg, #ffffff00, #ffffff);
+  padding: 4px 0px;
+  position: sticky;
+  z-index: 1000;
+  top: 0px;
+  align-items: center;
+}
+.circle{
+  background-color: #ffffffcf;
+  backdrop-filter: blur(6px);
+  width: 56px;
+  height:56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  flex-basis: 56px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 7px 2.15px #0000000b;
+}
+.contorno{
+  border-radius: 100%;
+  box-shadow: 0px 0px 6px 6px #00000005;
+}
+.medium-logo{
+  width: 126px;
+  height: 40px;
+  transition: 200ms;
+}
+
+.remitente{
+  color: #1C943F;
+  font-weight: 500;
+  font-size: 17px;
+  display: flex;
+  gap:9px;
+  letter-spacing: -0.1px;
+  align-items: bottom;
+  margin-bottom: 20px;
+}
+.icono{
+  max-height: 20px;
+  width: auto;
+  max-width: 32px;
+}
+.titulo{
+  font-weight: 650;
+  font-size: 26px;
+  letter-spacing: -0.2px;
+  margin-bottom: 14px;
+}
+.descripcion{
+  font-weight: 420;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+  margin-bottom: 20px;
+  line-height: 27px;
+  color: #444443;
+}
+.date{
+  font-weight: 450;
+  font-size: 15px;
+  color:#afafaf;
+  margin-bottom: 140px;
+}
+.anuncio-view{
+  margin: 2.50%;
+  margin-top: 34px;
+}
